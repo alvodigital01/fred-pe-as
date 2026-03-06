@@ -1,0 +1,49 @@
+{
+  "site_name": "FRED Peças Elétricas",
+  "colors": {
+    "primary": "#E31E24",
+    "secondary": "#1B4079",
+    "background": "#FFFFFF"
+  },
+  "typography": {
+    "family": "Montserrat",
+    "fallback": "sans-serif"
+  },
+  "sections": [
+    {
+      "type": "header",
+      "elements": ["logo", "nav_links", "whatsapp_button"],
+      "nav_links": ["Início", "Sobre Nós", "Categorias", "Localização"]
+    },
+    {
+      "type": "hero",
+      "title": "Peças Elétricas Automotivas no Atacado e Varejo.",
+      "subtitle": "Especialistas em Alternadores e Motores de Partida desde 2004 em Londrina-PR.",
+      "cta": "Ver Catálogo de Peças"
+    },
+    {
+      "type": "features",
+      "items": ["Novos e Recondicionados", "Atacado", "Desde 2004"]
+    },
+    {
+      "type": "categories",
+      "items": ["Alternadores", "Motores de Partida", "Componentes Elétricos"]
+    },
+    {
+      "type": "about",
+      "highlight": "Atendemos Londrina e região com entrega rápida e garantia de qualidade."
+    },
+    {
+      "type": "mid_cta",
+      "text": "Não achou a peça que precisava? Envie uma foto do seu modelo no nosso WhatsApp e fazemos a cotação na hora!"
+    },
+    {
+      "type": "location_contact",
+      "city": "Londrina - PR"
+    },
+    {
+      "type": "footer",
+      "content": "© 2026 FRED Peças Elétricas • Desenvolvido por Alvo Digital"
+    }
+  ]
+}
