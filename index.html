@@ -13,7 +13,7 @@
 </head>
 <body>
   <script>
-    (function () {
+    document.addEventListener("DOMContentLoaded", () => {
       const root = document.documentElement;
 
       // header: add "is-scrolled"
@@ -65,28 +65,57 @@
         const top = target.getBoundingClientRect().top + window.pageYOffset - 88;
         window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" });
       });
-    })();
+
+      // mobile menu toggle
+      const menuButton = document.querySelector(".menu-toggle");
+      if (menuButton && header) {
+        const closeMenu = () => {
+          header.classList.remove("nav-open");
+          menuButton.setAttribute("aria-expanded", "false");
+        };
+
+        menuButton.addEventListener("click", () => {
+          const willOpen = !header.classList.contains("nav-open");
+          header.classList.toggle("nav-open", willOpen);
+          menuButton.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        });
+
+        document.querySelectorAll(".header .nav a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 940) closeMenu();
+        });
+      }
+    });
   </script>
   <div class="topbar">
     <div class="container topbar-content">
       <p>Desde 2004 atendendo Londrina e região</p>
-      <a href="https://wa.me/5543000000000" target="_blank" rel="noopener noreferrer">Atendimento rápido no WhatsApp</a>
     </div>
   </div>
 
   <header class="header" id="inicio">
     <div class="container header-content">
-      <a class="logo" href="#inicio" aria-label="Início FRED Peças Elétricas">
+      <a class="logo" href="#inicio" aria-label="In&iacute;cio FRED Pe&ccedil;as El&eacute;tricas">
         <span class="logo-mark">FRED</span>
-        <span class="logo-text">Peças Elétricas</span>
+        <span class="logo-text">Pe&ccedil;as El&eacute;tricas</span>
       </a>
-      <nav class="nav">
-        <a href="#inicio">Início</a>
-        <a href="#categorias">Categorias</a>
-        <a href="#sobre">Sobre Nós</a>
-        <a href="#localizacao">Localização</a>
-      </nav>
-      <a class="btn btn-whatsapp" href="https://wa.me/5543000000000" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+      <button class="menu-toggle" type="button" aria-controls="main-menu" aria-expanded="false" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="header-menu" id="main-menu">
+        <nav class="nav">
+          <a href="#inicio">In&iacute;cio</a>
+          <a href="#categorias">Categorias</a>
+          <a href="#sobre">Sobre N&oacute;s</a>
+          <a href="#localizacao">Localiza&ccedil;&atilde;o</a>
+        </nav>
+        <a class="btn btn-whatsapp" href="https://wa.me/5543000000000" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+      </div>
     </div>
   </header>
 
@@ -340,3 +369,6 @@
   </a>
 </body>
 </html>
+
+
+
